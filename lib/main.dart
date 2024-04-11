@@ -5,8 +5,6 @@ void main() {
   runApp(const NotesApp());
 }
 
-
-
 class NotesApp extends StatelessWidget {
   const NotesApp({super.key});
 
@@ -15,10 +13,10 @@ class NotesApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        NotesView.id:(context) =>  const NotesView(),
+        NotesView.id: (context) => const NotesView(),
       },
-      theme: ThemeData(brightness: Brightness.dark),
-      initialRoute:NotesView.id,
+      theme: ThemeData(brightness: Brightness.dark, fontFamily: "Poppins"),
+      initialRoute: NotesView.id,
     );
   }
 }

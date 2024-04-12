@@ -1,29 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/widgets/custom_icon.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
-
+  const CustomAppBar({super.key, required this.title, required this.icon});
+  final String title;
+  final IconData icon;
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return  Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text(
-          "Notes",
-          style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
+        Text(
+          title,
+          style:const TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
         ),
-        Container(
-          height: 50,
-          width: 50,
-          decoration: BoxDecoration(
-            color: Colors.white.withOpacity(.05),
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: const Icon(
-            Icons.search,
-            size: 28,
-          ),
-        )
+        CutsomIcon(icon: icon,)
       ],
     );
   }

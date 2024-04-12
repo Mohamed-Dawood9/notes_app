@@ -19,11 +19,11 @@ class EditNoteView extends StatelessWidget {
               icon: Icons.check,
             ),
             SizedBox(height: 40),
-            CustomTextField(hint: "Title"),
+            CustomTextFormField(hint: "Title"),
             SizedBox(
               height: 16,
             ),
-            CustomTextField(
+            CustomTextFormField(
               hint: "\n\nContent\n\n",
               maxLines: 5,
             ),

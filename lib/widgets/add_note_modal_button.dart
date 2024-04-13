@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,10 +17,10 @@ class AddNoteModalBottom extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           if (state is AddNoteCubitFaliure) {
-            print("failed ${state.errmessage}");
+            log("failed ${state.errmessage}");
           }
           if (state is AddNoteCubitSuccess) {
-            Navigator.pop(context);
+            
           }
           return AbsorbPointer(
             absorbing: state is AddNoteCubitLoading ? true : false,

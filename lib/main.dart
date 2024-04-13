@@ -7,10 +7,12 @@ import 'package:notes_app/models/note_view_model.dart';
 import 'package:notes_app/simple_bloc_observer.dart';
 import 'package:notes_app/view/edit_note_view.dart';
 import 'package:notes_app/view/notes_view.dart';
-
+import 'package:path_provider/path_provider.dart';
 void main() async {
   Bloc.observer = SimpleBlockObserver();
-  await Hive.initFlutter();
+  WidgetsFlutterBinding.ensureInitialized();
+final directory = await getApplicationDocumentsDirectory();
+Hive.init(directory.path);
   Hive.registerAdapter(NoteModelAdapter());
   await Hive.openBox<NoteModel>(kNotesBox);
 

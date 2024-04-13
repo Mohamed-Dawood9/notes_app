@@ -1,35 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/widgets/custom_app_bar.dart';
-import 'package:notes_app/widgets/custom_text_field.dart';
+import 'package:notes_app/models/note_view_model.dart';
+
+import 'package:notes_app/widgets/edit_note_view_body.dart';
 
 class EditNoteView extends StatelessWidget {
-  const EditNoteView({super.key});
+  const EditNoteView({super.key, required this.note});
 
+  final NoteModel note;
   static String id = "editNoteView";
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Padding(
-        padding: EdgeInsets.only(left: 20, right: 20, top: 8),
-        child: Column(
-          children: [
-            SizedBox(height: 40),
-            CustomAppBar(
-              title: "Edit Note",
-              icon: Icons.check,
-            ),
-            SizedBox(height: 40),
-            CustomTextFormField(hint: "Title"),
-            SizedBox(
-              height: 16,
-            ),
-            CustomTextFormField(
-              hint: "\n\nContent\n\n",
-              maxLines: 5,
-            ),
-          ],
-        ),
-      ),
+    return  Scaffold(
+      body: EditNoteViewBody(note: note,),
     );
   }
 }

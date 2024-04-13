@@ -21,10 +21,14 @@ class AddNoteModalBottom extends StatelessWidget {
             Navigator.pop(context);
           }
           return AbsorbPointer(
-            absorbing: state is AddNoteCubitLoading ? true :false ,
-            child: const Padding(
-              padding: EdgeInsets.all(12),
-              child: SingleChildScrollView(child: AddNoteForm()),
+            absorbing: state is AddNoteCubitLoading ? true : false,
+            child: Padding(
+              padding: EdgeInsets.only(
+                  left: 12,
+                  right: 12,
+                  top: 12,
+                  bottom: MediaQuery.of(context).viewInsets.bottom),
+              child: const SingleChildScrollView(child: AddNoteForm()),
             ),
           );
         },

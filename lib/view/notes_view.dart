@@ -12,9 +12,10 @@ class NotesView extends StatelessWidget {
       floatingActionButton: Padding(
         padding: const EdgeInsets.all(8.0),
         child: FloatingActionButton(
-            backgroundColor:kPrimaryColor,
+            backgroundColor: kPrimaryColor,
             onPressed: () {
               showModalBottomSheet(
+                  isScrollControlled: true,
                   context: context,
                   builder: (context) {
                     return const AddNoteModalBottom();

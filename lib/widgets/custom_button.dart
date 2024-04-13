@@ -3,9 +3,11 @@ import 'package:notes_app/consts/consts.dart';
 
 // ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
-  CustomButton({super.key, required this.title, this.ontap});
+  CustomButton(
+      {super.key, required this.title, this.ontap, this.isLoading = false});
   String title;
- void Function()? ontap;
+  final bool isLoading;
+  void Function()? ontap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -18,14 +20,22 @@ class CustomButton extends StatelessWidget {
           color: kPrimaryColor,
         ),
         child: Center(
-            child: Text(
-          title,
-          style: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w600,
-            color: kTextColor,
-          ),
-        )),
+            child: isLoading
+                ? const SizedBox(
+                    height: 28,
+                    width: 28,
+                    child: CircularProgressIndicator(
+                      color: Colors.black,
+                    ),
+                  )
+                : Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: kTextColor,
+                    ),
+                  )),
       ),
     );
   }
